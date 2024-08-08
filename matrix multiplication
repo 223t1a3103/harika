@@ -1,0 +1,86 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM+pWf+0ShkXqekSXJGIJP7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/223t1a3103/harika/blob/main/matrix%20multiplication\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "F83R56JeI0-l",
+        "outputId": "8031a237-eb5e-4467-bc32-8868ca1bb3eb"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[19, 22]\n",
+            "[43, 50]\n"
+          ]
+        }
+      ],
+      "source": [
+        "def matrix_multiply(A, B):\n",
+        "    # Get the dimensions of the matrices\n",
+        "    rows_A = len(A)\n",
+        "    cols_A = len(A[0])\n",
+        "    rows_B = len(B)\n",
+        "    cols_B = len(B[0])\n",
+        "\n",
+        "    # Ensure the matrices can be multiplied\n",
+        "    if cols_A != rows_B:\n",
+        "        raise ValueError(\"Number of columns in A must be equal to number of rows in B\")\n",
+        "\n",
+        "    # Initialize the result matrix with zeros\n",
+        "    result = [[0] * cols_B for _ in range(rows_A)]\n",
+        "\n",
+        "    # Perform matrix multiplication\n",
+        "    for i in range(rows_A):\n",
+        "        for j in range(cols_B):\n",
+        "            for k in range(cols_A):\n",
+        "                result[i][j] += A[i][k] * B[k][j]\n",
+        "\n",
+        "    return result\n",
+        "\n",
+        "# Define two matrices\n",
+        "     [3, 4]]\n",
+        "\n",
+        "B = [[5, 6],\n",
+        "     [7, 8]]\n",
+        "\n",
+        "# Multiply the matrices\n",
+        "C = matrix_multiply(A, B)\n",
+        "\n",
+        "for row in C:\n",
+        "    print(row)\n"
+      ]
+    }
+  ]
+}
